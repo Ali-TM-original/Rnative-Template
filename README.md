@@ -6,7 +6,7 @@
 ## Installation
 
 ```shell script
-git clone
+git clone https://github.com/Ali-TM-original/Rnative-Template.git
 ```
 ```shell script
 npm i
