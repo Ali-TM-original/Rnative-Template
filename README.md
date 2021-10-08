@@ -22,5 +22,13 @@ npx react-native start
 npx react-native run-android
 ```
 
-<h3>This template has only been tested in Android emulator and is incomplete</h3>
+## Todo
+```shell script
+1>. Add a custom lottie splash screen
+2>. Refactor code
+
+```
+## Status
+
+<h3>Almost done</h3>
 

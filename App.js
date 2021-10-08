@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Home, Settings, HomeStack, SettingsStack, Account} from "./src/screens"
+import {Home,
+  Settings,
+  HomeStack,
+  SettingsStack,
+  Account,
+  login,
+  Register,
+} from "./src/screens"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -10,6 +17,7 @@ const Tab = createBottomTabNavigator();
 const homestackcomp = createNativeStackNavigator();
 const settingsstackcomp = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+const LoginStack = createNativeStackNavigator();
 
 const HOMESTACK=({navigation, route})=>{
   return(
@@ -38,14 +46,23 @@ const TABNAVIGATOR=()=>{
   )
 }
 
+const DRAWERNAVIGATION=()=>{
+  return(
+    <Drawer.Navigator initialRouteName="tabs">
+      <Drawer.Screen name="tabs" component={TABNAVIGATOR} options={{headerShown: false}}/>
+      <Drawer.Screen name="Account" component={Account} options={{headerShown: false}}/>
+    </Drawer.Navigator>
+  )
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="tabs">
-        <Drawer.Screen name="tabs" component={TABNAVIGATOR} options={{headerShown: false}}/>
-        <Drawer.Screen name="Account" component={Account} options={{headerShown: false}}/>
-      </Drawer.Navigator>
+      <LoginStack.Navigator initialRouteName="Login" >
+        <LoginStack.Screen name="Home-Drawer" component={DRAWERNAVIGATION} options={{headerShown:false}}/>
+        <LoginStack.Screen name="Login" component={login} options={{headerShown:false}}/>
+        <LoginStack.Screen name="Register" component={Register} options={{headerShown:false}}/>
+      </LoginStack.Navigator>
     </NavigationContainer>
   );
 }
