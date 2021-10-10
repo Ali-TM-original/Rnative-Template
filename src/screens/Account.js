@@ -5,7 +5,7 @@ import CustomHeader from './CustomHeader';
 const Account = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1}}>
-            <CustomHeader Title="Home" isStack={false} navigation={navigation}/>
+            <CustomHeader Title="Account" isStack={false} navigation={navigation}/>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Accounts</Text>
             </View>

@@ -19,10 +19,11 @@ const settingsstackcomp = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const LoginStack = createNativeStackNavigator();
 
+
 const HOMESTACK=({navigation, route})=>{
   return(
     <homestackcomp.Navigator initialRouteName="Home">
-      <homestackcomp.Screen name="Home" component={Home} options={{headerShown:false}}/>
+      <homestackcomp.Screen name="Home-Screen" component={Home} options={{headerShown:false}}/>
       <homestackcomp.Screen name="Home-Stack" component={HomeStack} options={{headerShown:false}}/>
     </homestackcomp.Navigator>
   )
@@ -31,7 +32,7 @@ const HOMESTACK=({navigation, route})=>{
 const SETTINGSSTACK=()=>{
   return(
     <settingsstackcomp.Navigator initialRouteName="Settings" >
-      <settingsstackcomp.Screen name="Settings" component={Settings} options={{headerShown:false}}/>
+      <settingsstackcomp.Screen name="Settings-Screen" component={Settings} options={{headerShown:false}}/>
       <settingsstackcomp.Screen name="Settings-Stack" component={SettingsStack} options={{headerShown:false}}/>
     </settingsstackcomp.Navigator>
   )
@@ -40,8 +41,19 @@ const SETTINGSSTACK=()=>{
 const TABNAVIGATOR=()=>{
   return(
     <Tab.Navigator >
-      <Tab.Screen name="Home" component={HOMESTACK} options={{headerShown: false}}/>
-      <Tab.Screen name="Settings" component={SETTINGSSTACK} options={{headerShown: false}}/>
+      <Tab.Screen 
+        name="Home" 
+        component={HOMESTACK} 
+        options={{headerShown: false}}
+      />
+      <Tab.Screen 
+        name="Settings" 
+        component={SETTINGSSTACK} 
+        options={()=>({
+          headerShown: false,
+        })}
+
+      />
     </Tab.Navigator>
   )
 }
